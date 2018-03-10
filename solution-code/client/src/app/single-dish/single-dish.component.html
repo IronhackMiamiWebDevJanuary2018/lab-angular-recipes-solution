@@ -1,0 +1,17 @@
+<h2>{{ dish?.name }}</h2>
+<img [src]="dish?.image">
+<p>{{ dish?.description }}</p>
+<h3>{{ dish?.name }}'s Ingredients</h3>
+<ul>
+  <li *ngFor="let ingData of dish?.ingredients">
+    {{ ingData.ingredient.name }} - {{ ingData.quantity }}
+  </li>
+</ul>
+<h3>Possible Ingredients</h3>
+<ul>
+  <li *ngFor="let ingredient of ingredients">
+    {{ ingredient.name }}
+    <input type="number" #quantity>
+    <button (click)="addIngredient(ingredient._id, quantity)">Add Ingredient</button>
+  </li>
+</ul>
